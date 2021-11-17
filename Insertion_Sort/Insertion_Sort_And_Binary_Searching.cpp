@@ -26,10 +26,13 @@ int Binary_Search_Recursive(const std::vector<int>& vec, int left, int right, in
         return left;
         
     int mid = (left + right) / 2;
+    if(vec[mid] == number)
+    	return mid + 1;
+    
     if(vec[mid] < number)
         return Binary_Search_Recursive(vec,mid + 1, right,number);
     else 
-        return Binary_Search_Recursive(vec,0, mid - 1,number);
+        return Binary_Search_Recursive(vec,left, mid - 1,number);
 }
 
 int main()
